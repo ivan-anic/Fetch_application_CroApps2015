@@ -1,7 +1,5 @@
 package hr.fer.croapps.videoapp;
 
-import java.net.URI;
-
 public class SearchItem {
     private String name;
     private String author;

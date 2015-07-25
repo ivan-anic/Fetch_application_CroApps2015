@@ -3,30 +3,16 @@ package hr.fer.croapps.videoapp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SoundEffectConstants;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import com.google.api.services.youtube.YouTube;
-
-import java.util.ArrayList;
-
-import com.google.api.services.youtube.YouTube;
-
-import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -71,9 +57,7 @@ public class MainActivity extends ActionBarActivity {
     Animation.AnimationListener animationListener = new Animation.AnimationListener() {
 
         @Override
-        public void onAnimationStart(Animation animation) {
-            // TODO Auto-generated method stub
-        }
+        public void onAnimationStart(Animation animation) {}
 
 
         @Override
@@ -84,25 +68,17 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
         @Override
-        public void onAnimationRepeat(Animation animation) {
-            // TODO Auto-generated method stub
-        }};
+        public void onAnimationRepeat(Animation animation) {}};
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
