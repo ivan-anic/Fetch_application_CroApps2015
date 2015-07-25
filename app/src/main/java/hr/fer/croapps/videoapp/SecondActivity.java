@@ -47,12 +47,12 @@ public class SecondActivity extends ActionBarActivity {
     private EditText searchInput;
     private ListView videosFound;
 
+    String newString="hello";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        String newString="hello";
 
         Button button = (Button) findViewById(R.id.button2);
         Bundle extras = getIntent().getExtras();
@@ -72,12 +72,14 @@ public class SecondActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (searchInput.getText().toString().length()>0)
+                if (searchInput.getText().toString().length()>0) {
                     searchOnYoutube(searchInput.getText().toString());
+                newString = searchInput.getText().toString();
+                }
             }
         });
 
-    addClickListener();
+        addClickListener();
     }
 
 
@@ -90,6 +92,7 @@ public class SecondActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
                 Intent intent = new Intent(getApplicationContext(), PlayerActivity.class);
                 intent.putExtra("VIDEO_ID", searchResults.get(pos).getId());
+                intent.putExtra("name",newString);
                 startActivity(intent);
             }
 

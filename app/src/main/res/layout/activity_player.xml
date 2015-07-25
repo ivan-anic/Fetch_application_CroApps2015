@@ -1,7 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true" >
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/player_view"
@@ -24,13 +27,53 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/timeEdit"/>
+            android:id="@+id/timeEdit"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:lines="1"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="set"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/forward"
             android:id="@+id/button3"/>
+
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:background="@drawable/home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/button4"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/pause"
+            android:id="@+id/buttonpause" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/play"
+            android:id="@+id/buttonplay" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView2"
+        android:choiceMode="singleChoice"
+        tools:listitem="@layout/list_view" />
 
 </LinearLayout>

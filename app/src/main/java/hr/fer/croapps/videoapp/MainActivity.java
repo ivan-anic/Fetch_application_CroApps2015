@@ -24,19 +24,25 @@ import com.google.api.services.youtube.YouTube;
 
 import java.util.ArrayList;
 
+import com.google.api.services.youtube.YouTube;
+
+import java.util.ArrayList;
+
 
 public class MainActivity extends ActionBarActivity {
     static String Target_Translate = "Translate";
     String target_op = Target_Translate; //dummy default
     static String KEY_ANIM = "TARGET_ANIM";
+    Button button;
+    EditText searchText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = (Button) findViewById(R.id.button);
-        final EditText searchText = (EditText) findViewById(R.id.searchText);
+        button = (Button) findViewById(R.id.button);
+        searchText = (EditText) findViewById(R.id.searchText);
         final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.anim_translate);
 
         searchText.setOnClickListener(new View.OnClickListener() {
@@ -55,9 +61,6 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 v.playSoundEffect(SoundEffectConstants.CLICK);
                 if (searchText.getCurrentTextColor()== Color.BLACK && searchText.getText().toString().length()>0) {
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    intent.putExtra("string", searchText.getText().toString());
-                    //startActivity(intent);
                     target_op = Target_Translate;
                     v.startAnimation(animTranslate);
                 }
@@ -77,12 +80,13 @@ public class MainActivity extends ActionBarActivity {
         public void onAnimationEnd(Animation animation) {
             Intent intent = new Intent(MainActivity.this,SecondActivity.class);
             intent.putExtra(KEY_ANIM, target_op);
+            intent.putExtra("string", searchText.getText().toString());
             startActivity(intent);
         }
         @Override
         public void onAnimationRepeat(Animation animation) {
             // TODO Auto-generated method stub
-       }};
+        }};
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
